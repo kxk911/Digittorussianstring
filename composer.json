@@ -1,0 +1,14 @@
+{
+    "name": "kxk911/digittorussianstring",
+    "description": "Converting digits to russian string",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Konstantin Chizhov",
+            "email": "kostya.ch911@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
