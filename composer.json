@@ -3,6 +3,11 @@
     "description": "Converting digits to russian string",
     "type": "library",
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kxk911\\Digittorussianstring\\": "src/"
+        }
+    },
     "authors": [
         {
             "name": "Konstantin Chizhov",
