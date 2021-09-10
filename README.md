@@ -17,7 +17,7 @@ Kxk911\Digittorussianstring\DigittorussianstringServiceProvider::class
 require __DIR__ . '/vendor/autoload.php';
 use Kxk911\Digittorussianstring;
 
-print_r(Digittorussianstring\Digittorussianstring::toWord('123.1') );
+print_r(Digittorussianstring\Digittorussianstring::toWord('123.1'));
 ```
 
 ### For Laravel
@@ -26,8 +26,7 @@ use Kxk911\Digittorussianstring;
 
 //Some code
 
-$dd = new Digittorussianstring\Digittorussianstring;
-echo $dd->toWord('123.1'));
+print_r(Digittorussianstring\Digittorussianstring::toWord('123.1'));
 ```
 
 
