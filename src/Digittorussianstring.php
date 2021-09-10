@@ -10,7 +10,7 @@ class Digittorussianstring
      * @param $digits int - digits
      * @return string 
      */
-    public function toWord($digits){
+    public static function toWord($digits){
         $digits = str_replace(',','.',$digits);
         if(is_numeric($digits)){
             $digitsArrray = explode('.', $digits);
@@ -41,33 +41,33 @@ class Digittorussianstring
 
                         if($sub_len == 3){
                             if($j == 1 && $sub_dig[$j] == 1){
-                                $ret_string .= $this->getDigitName( $sub_dig[$j].$sub_dig[$j+1], $post, $i).' ';
+                                $ret_string .= self::getDigitName( $sub_dig[$j].$sub_dig[$j+1], $post, $i).' ';
                                 $sub_ret_string .= $sub_dig[$j].$sub_dig[$j+1];
                                 $flag = true;
                             }
                             if(!$flag){
-                                $ret_string .= $this->getDigitName( $sub_dig[$j], $post, $i).' ';
+                                $ret_string .= self::getDigitName( $sub_dig[$j], $post, $i).' ';
                                 $sub_ret_string .= $sub_dig[$j];
                             }
                         }elseif($sub_len == 2){
                             if($j == 0 && $sub_dig[$j] == 1){
-                                $ret_string .= $this->getDigitName( $sub_dig[$j].$sub_dig[$j+1], $post, $i).' ';
+                                $ret_string .= self::getDigitName( $sub_dig[$j].$sub_dig[$j+1], $post, $i).' ';
                                 $sub_ret_string .= $sub_dig[$j].$sub_dig[$j+1];
                                 $flag = true;
                             }
                             if(!$flag){
-                                $ret_string .= $this->getDigitName( $sub_dig[$j], $post, $i).' ';
+                                $ret_string .= self::getDigitName( $sub_dig[$j], $post, $i).' ';
                                 $sub_ret_string .= $sub_dig[$j];
                             }
                         }else{
-                            $ret_string .= $this->getDigitName( $sub_dig[$j], $post, $i).' ';
+                            $ret_string .= self::getDigitName( $sub_dig[$j], $post, $i).' ';
                             $sub_ret_string .= $sub_dig[$j];
                         }
                     }
-                    $ret_string .= $this->getTriolName($pw, $sub_ret_string).' ';
+                    $ret_string .= self::getTriolName($pw, $sub_ret_string).' ';
                 }
             }
-            $ret_string = $this->mb_ucfirst($ret_string);
+            $ret_string = self::mb_ucfirst($ret_string);
             return [$ret_string, empty($digitsArrray[1])? "00":$digitsArrray[1]];
         }
         return ["0","00"];
@@ -80,7 +80,7 @@ class Digittorussianstring
      * @param int $val - value of triolies
      * @return string
      */
-    public function getTriolName($index, $val){
+    public static function getTriolName($index, $val){
         $triolies = [
             "1" =>  ["", "", ""],
             "1000" =>  ["тысяча", "тысячи", "тысяч"],
@@ -120,7 +120,7 @@ class Digittorussianstring
      * @param int $iterator - value of triolies position
      * @return string
      */
-    public function getDigitName($digit, $position, $iterator){
+    public static function getDigitName($digit, $position, $iterator){
         $digits = [
             0 => [
                 0 => "",
@@ -195,7 +195,7 @@ class Digittorussianstring
      * @param string $env
      * @return string
      */
-    private function mb_ucfirst($str, $enc = 'utf-8') {
+    private static function mb_ucfirst($str, $enc = 'utf-8') {
         return mb_strtoupper(
             mb_substr($str, 0, 1, $enc), $enc).mb_substr($str, 1, mb_strlen($str, $enc), $enc);
     }
